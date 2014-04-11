@@ -5,7 +5,16 @@
     android:background="#FFCCCCCC"
     android:orientation="vertical"
     tools:context=".MainActivity" >
-   
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:padding="5dip" >
+
+        <requestFocus />
+    </EditText>
 
 	<com.example.pictionary.DrawingView
 	    android:id="@+id/drawing"
@@ -17,5 +26,12 @@
 	    android:layout_marginTop="3dp"
 	    android:layout_weight="1"
 	    android:background="#FFFFFFFF" />
+
+	<Button
+	    android:id="@+id/button1"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    
+	    android:text="Button" />
 
 </LinearLayout>
