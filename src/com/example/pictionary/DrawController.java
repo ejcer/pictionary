@@ -11,14 +11,18 @@ package com.example.pictionary;
  */
 public class DrawController
 {
+    // Our fields
+    String guessword;
+
+
     /**
-     * Constructer for the class, takes the attempted word
+     * Constructor for the class, takes the attempted word
      * 
      * @param word
      */
     public DrawController(String word)
     {
-
+        guessword = word;
     }
 
 

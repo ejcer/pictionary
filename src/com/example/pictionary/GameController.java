@@ -4,21 +4,42 @@ import java.util.ArrayList;
 
 public class GameController
 {
+    ArrayList<Integer> scorelist;
+    ArrayList<String>  namelist;
+
+
     /**
      * sets up our game controller with the correct number of players
      */
     public GameController(int numplayers)
     {
+        scorelist = new ArrayList<Integer>(numplayers);
+        namelist = new ArrayList<String>(numplayers);
 
     }
 
 
     /**
-     * returns an ArrayList of everyones scores
+     * gets number of players
+     * 
+     * @return numplayers
      */
-    public ArrayList<Integer> getScores()
+    public int getNumPlayers()
     {
-        return null;
+        return scorelist.size();
+    }
+
+
+    /**
+     * returns an ArrayList of everyones scores
+     * 
+     * @param playernum
+     *            is the player's number you want the score of;
+     * @return score
+     */
+    public int getScore(int playernum)
+    {
+        return scorelist.get(playernum);
     }
 
 
@@ -27,7 +48,7 @@ public class GameController
      */
     public void setPlayerName(int playernum, String name)
     {
-
+        namelist.set(playernum - 1, name);
     }
 
 
@@ -38,7 +59,7 @@ public class GameController
      */
     public String getPlayerName(int playernum)
     {
-        return null;
+        return namelist.get(playernum - 1);
     }
 
 
@@ -57,13 +78,13 @@ public class GameController
      * sets the score
      * 
      * @param playernum
-     *            the players numnber
+     *            the players number
      * @param score
      *            the score to add
      */
     public void setScore(int playernum, int score)
     {
-        // hahajhahha
+        scorelist.set(playernum, score);
     }
 
 }
