@@ -1,64 +1,76 @@
 package com.example.pictionary;
 
+import java.util.Queue;
+
+import java.util.Iterator;
+
+
 /**
  * // -------------------------------------------------------------------------
  * /** Write a one-sentence summary of your class here. Follow it with
  * additional details about its purpose, what abstraction it represents, and how
  * to use it.
- * 
+ *
  * @author Pictionary Team (Chris Deisher, Edward McEnrue, Michael Liu)
  * @version Apr 16, 2014
  */
 public class DrawController
 {
     // Our fields
-    String guessword;
-
-
+    private String guessWord;
+    private DrawQueue<DrawObject> draw;
+    private int currentPos;
     /**
      * Constructor for the class, takes the attempted word
-     * 
+     *
      * @param word
      */
     public DrawController(String word)
     {
-        guessword = word;
+        guessWord = word;
+        draw = new DrawQueue<DrawObject>();
+        currentPos = 0;
     }
 
-
+    // ----------------------------------------------------------
     /**
-     * adds data
+     * Adds a new point for user drawing
+     * @param color the color selected
+     * @param x x-coordinate of point
+     * @param y y-coordinate of point
      */
     public void addData(int color, int x, int y)
     {
-
+        DrawObject temp = new DrawObject(color, x, y);
+        draw.add(temp);
     }
 
-
+    // ----------------------------------------------------------
     /**
-     * returns the current thing (drawable part)
+     * Called when user is drawing and clicks undo
      */
-    public void getCurrent()
-    {
-
+    public void undo() {
+        draw.remove();
     }
 
-
+    // ----------------------------------------------------------
     /**
-     * @return the score
+     * Called when redrawing for user
      */
-    public int getScore()
-    {
-        return -1;
+    public DrawObject pop() {
+        currentPos++;
+        return draw.remove();
     }
 
-
+    // ----------------------------------------------------------
     /**
-     * clears everything
+     * Gets score when user guesses correctly
+     * @return int points earned
      */
-    public void clear()
-    {
-
+    public int getScore() {
+        if(draw.size() == 0) {
+            return 0;
+        }
+        return guessWord.length() * (int) ((draw.size() - currentPos)/draw.size());
     }
-
 }
