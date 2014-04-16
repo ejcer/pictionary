@@ -6,35 +6,52 @@ package com.example.pictionary;
  * additional details about its purpose, what abstraction it represents, and how
  * to use it.
  * 
- * @author Pictionary Team (Chris, Edward, Michael)
+ * @author Pictionary Team (Chris Deisher, Edward McEnrue, Michael Liu)
  * @version Apr 16, 2014
  */
 public class DrawController
 {
+    /**
+     * Constructer for the class, takes the attempted word
+     * 
+     * @param word
+     */
     public DrawController(String word)
     {
 
     }
 
 
-    public void addData()
+    /**
+     * adds data
+     */
+    public void addData(int color, int x, int y)
     {
 
     }
 
 
-    public void pop()
+    /**
+     * returns the current thing (drawable part)
+     */
+    public void getCurrent()
     {
 
     }
 
 
-    public void getScore()
+    /**
+     * @return the score
+     */
+    public int getScore()
     {
-
+        return -1;
     }
 
 
+    /**
+     * clears everything
+     */
     public void clear()
     {
 
