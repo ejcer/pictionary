@@ -12,7 +12,7 @@ import java.util.Queue;
  * drawn, so they can be removed in order
  * 
  * @param <E>
- * @author Christopher Deisher
+ * @author Christopher Deisher (cdd5)
  * @version Apr 16, 2014
  */
 public class DrawQueue<E>
