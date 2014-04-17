@@ -16,8 +16,8 @@ import android.view.Menu;
  * requests the player to input how many players will be in the game, and it
  * also has a start button to begin the game and call the drawActivty.
  *
- *  @author Pictionary Team (Chris Deisher, Edward McEnrue, Michael Liu)
- *  @version Apr 16, 2014
+ * @author Pictionary Team (Chris Deisher, Edward McEnrue, Michael Liu)
+ * @version Apr 16, 2014
  */
 
 public class MainActivity
@@ -39,8 +39,13 @@ public class MainActivity
 
 
     // Getting the button to start the draw activity and pass player amt info
-// below
+    // below.
 
+    /**
+     * Listens for the startDrawing button to be clicked, and if the editText
+     * has information entered, then the DrawActivity activity will be called
+     * with the player amount data passed through an intent.
+     */
     public void startDrawing(View view)
     {
         // Build an intent and the key value pair in response to the button.
@@ -48,9 +53,17 @@ public class MainActivity
         Intent intent = new Intent(this, DrawActivity.class);
 
         EditText editText = (EditText)findViewById(R.id.playerAmount);
-        String playerAmount = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, playerAmount);
-        startActivity(intent);
+
+        if (!editText.getText().toString().equals(""))
+        {
+            String playerAmount = editText.getText().toString();
+            intent.putExtra(EXTRA_MESSAGE, playerAmount);
+
+            startActivity(intent);
+        }
+
+        // TODO Implement an else statement here to tell the user to enter a
+        // player amount. Possibly with a toast notification.
     }
 
 }

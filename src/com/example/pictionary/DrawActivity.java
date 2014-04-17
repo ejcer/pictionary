@@ -13,8 +13,8 @@ import android.view.Menu;
  * is first called by the start screen, and it instantiates the game with a
  * player amount from the first MainActivity.
  *
- *  @author Pictionary Team (Chris Deisher, Edward McEnrue, Michael Liu)
- *  @version Apr 16, 2014
+ * @author Pictionary Team (Chris Deisher, Edward McEnrue, Michael Liu)
+ * @version Apr 16, 2014
  */
 public class DrawActivity
     extends Activity
@@ -29,6 +29,7 @@ public class DrawActivity
         // Get the player amount from the incoming intent key value data.
         Intent intent = getIntent();
         String playerAmount = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        // TODO Parse the player amount string to be used for the game mechanic
     }
 
 
@@ -38,7 +39,9 @@ public class DrawActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.draw, menu);
         return true;
-        //DrawView drawView = (DrawView)findViewById(R.id.playerAmount); How do I add this Michael??
+        // DrawView drawView = (DrawView)findViewById(R.id.playerAmount); How do
+        // I add this Michael??
+        //TODO Have Michael show you how to add the drawview widget here.
     }
 
 }
