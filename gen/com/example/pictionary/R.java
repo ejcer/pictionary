@@ -27,7 +27,7 @@ public final class R {
         public static final int action_settings=0x7f080003;
         public static final int button1=0x7f080001;
         public static final int drawing=0x7f080000;
-        public static final int editText1=0x7f080002;
+        public static final int playerAmount=0x7f080002;
     }
     public static final class layout {
         public static final int activity_draw=0x7f030000;

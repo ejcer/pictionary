@@ -11,10 +11,11 @@
 	    android:layout_height="wrap_content"
 	    android:layout_alignParentBottom="true"
 	    android:layout_alignParentLeft="true"
-	    android:text="Start Drawing" />
+	    android:text="Start Drawing"
+	    android:onClick="startDrawing" />
 
 	<EditText
-	    android:id="@+id/editText1"
+	    android:id="@+id/playerAmount"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:layout_alignParentLeft="true"
