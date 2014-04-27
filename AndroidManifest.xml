@@ -26,6 +26,18 @@
             android:name="com.example.pictionary.DrawActivity"
             android:label="@string/title_activity_draw" >
         </activity>
+        <activity
+            android:name="com.example.pictionary.GuessActivity"
+            android:label="@string/title_activity_guess" >
+        </activity>
+        <activity
+            android:name="com.example.pictionary.ScoreUpdateActivity"
+            android:label="@string/title_activity_score_update" >
+        </activity>
+        <activity
+            android:name="com.example.pictionary.StartGuessDialog"
+            android:label="@string/title_activity_start_guess_dialog" >
+        </activity>
     </application>
 
 </manifest>

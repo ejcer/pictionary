@@ -24,10 +24,10 @@ public class MainActivity
     extends Activity
 {
 
-    private DrawingView        drawView;
+
 
     // The key value pair to send the player amount to DrawActivity
-    public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    public final static String PLAYER_AMOUNT = "com.Pictionary.MainActivity.MESSAGE";
 
 
     @Override
@@ -39,31 +39,38 @@ public class MainActivity
 
 
     // Getting the button to start the draw activity and pass player amt info
-    // below.
+    // below:
 
     /**
      * Listens for the startDrawing button to be clicked, and if the editText
      * has information entered, then the DrawActivity activity will be called
      * with the player amount data passed through an intent.
+     *
+     * @param view
+     *            The button view named "startDrawing."
      */
     public void startDrawing(View view)
     {
         // Build an intent and the key value pair in response to the button.
 
-        Intent intent = new Intent(this, DrawActivity.class);
+        Intent mainIntent = new Intent(this, DrawActivity.class);
 
         EditText editText = (EditText)findViewById(R.id.playerAmount);
 
         if (!editText.getText().toString().equals(""))
         {
             String playerAmount = editText.getText().toString();
-            intent.putExtra(EXTRA_MESSAGE, playerAmount);
+            mainIntent.putExtra(PLAYER_AMOUNT, playerAmount);
 
-            startActivity(intent);
+            startActivity(mainIntent);
         }
 
         // TODO Implement an else statement here to tell the user to enter a
         // player amount. Possibly with a toast notification.
     }
 
+    // TODO Check if the static strings being passed should have a different
+    // thing than, "com.Pictionary.ActivityName here.MESSAGE"
+
+    // TODO Should we hardcode our string values into the @string resource?
 }
