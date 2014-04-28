@@ -1,5 +1,6 @@
 package com.example.pictionary;
 
+import android.widget.Toast;
 import android.widget.EditText;
 import android.content.Intent;
 import android.view.View;
@@ -27,7 +28,7 @@ public class MainActivity
 
 
     // The key value pair to send the player amount to DrawActivity
-    public final static String PLAYER_AMOUNT = "com.Pictionary.MainActivity.MESSAGE";
+    public final static String PLAYER_AMOUNT = "com.Pictionary.MainActivity.NUMPLAYERS";
 
 
     @Override
@@ -55,22 +56,30 @@ public class MainActivity
 
         Intent mainIntent = new Intent(this, DrawActivity.class);
 
-        EditText editText = (EditText)findViewById(R.id.playerAmount);
+        EditText editTextPlayerCount = (EditText)findViewById(R.id.playerAmount);
 
-        if (!editText.getText().toString().equals(""))
+        String playerCount = editTextPlayerCount.getText().toString();
+
+
+
+        if (playerCount == null || Integer.parseInt(playerCount) == 0)
         {
-            String playerAmount = editText.getText().toString();
-            mainIntent.putExtra(PLAYER_AMOUNT, playerAmount);
+            Toast.makeText(getApplicationContext(), "Enter a valid number", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            mainIntent.putExtra(PLAYER_AMOUNT, playerCount);
 
             startActivity(mainIntent);
         }
 
-        // TODO Implement an else statement here to tell the user to enter a
-        // player amount. Possibly with a toast notification.
+
     }
 
-    // TODO Check if the static strings being passed should have a different
-    // thing than, "com.Pictionary.ActivityName here.MESSAGE"
+    // TODO Check if the static strings should be final and such
 
     // TODO Should we hardcode our string values into the @string resource?
+
+    // TODO Find out how to test Toast notifications.
+    // TODO Find out if we need a test class for each activity.
 }
