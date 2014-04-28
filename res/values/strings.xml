@@ -9,5 +9,6 @@
     <string name="title_activity_guess">GuessActivity</string>
     <string name="title_activity_score_update">ScoreUpdateActivity</string>
     <string name="title_activity_start_guess_dialog">StartGuessDialog</string>
+    <string name="title_activity_bullshit">BULLSHIT</string>
 
 </resources>

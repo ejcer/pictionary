@@ -38,6 +38,10 @@
             android:name="com.example.pictionary.StartGuessDialog"
             android:label="@string/title_activity_start_guess_dialog" >
         </activity>
+        <activity
+            android:name="com.example.pictionary.BULLSHIT"
+            android:label="@string/title_activity_bullshit" >
+        </activity>
     </application>
 
 </manifest>
