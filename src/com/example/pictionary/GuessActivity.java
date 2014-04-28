@@ -73,6 +73,8 @@ public class GuessActivity
 
 
 
+            //MainActivity.controller.addToScore(MainActivity.controller.getCurrentPlayer(), 15);
+            //MainActivity.controller.getScore(1);
 
 
             startActivity(guessIntent);

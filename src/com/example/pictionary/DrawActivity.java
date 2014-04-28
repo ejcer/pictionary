@@ -23,6 +23,8 @@ public class DrawActivity
 
     private DrawingView        drawView;
 
+    //private GameController controller;
+
     // The key value pair to send the recorded drawing to the dialog activity
     public final static String DRAWING_RECORD =
                                                   "com.Pictionary.DrawActivity.MESSAGE";
@@ -37,8 +39,12 @@ public class DrawActivity
         // Get the player amount from the incoming intent key value data.
         Intent mainIntent = getIntent();
 
+//        Intent i = getIntent();
+//        Deneme dene = (Deneme)i.getSerializableExtra("sampleObject");
+
+
         // TODO Make sure this isn't called a second time for 2nd round.
-        String playerAmount = mainIntent.getStringExtra(MainActivity.PLAYER_AMOUNT);
+        //GameController controller = (GameController)mainIntent.getSerializableExtra(MainActivity.GAME_CONTROLLER);
 
         // TODO Parse the player amount string to be used for the game mechanic
     }

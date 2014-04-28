@@ -27,8 +27,13 @@ public class MainActivity
 
 
 
+    public static GameController controller; // A new instance of the game is made.
+
     // The key value pair to send the player amount to DrawActivity
-    public final static String PLAYER_AMOUNT = "com.Pictionary.MainActivity.NUMPLAYERS";
+    public final static String GAME_CONTROLLER = "com.Pictionary.MainActivity.CONTROLLER";
+
+
+
 
 
     @Override
@@ -52,26 +57,45 @@ public class MainActivity
      */
     public void startDrawing(View view)
     {
-        // Build an intent and the key value pair in response to the button.
 
-        Intent mainIntent = new Intent(this, DrawActivity.class);
+
+
 
         EditText editTextPlayerCount = (EditText)findViewById(R.id.playerAmount);
 
-        String playerCount = editTextPlayerCount.getText().toString();
+        try
+        {
+            int playerCount = new Integer(editTextPlayerCount.getText().toString()).intValue();
 
 
+            if(playerCount < 1) // Ensures the amount of players is not 0.
+            {
+                Toast.makeText(getApplicationContext(), "Enter a valid number", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                // Build an intent and the key value pairs in response to the button.
 
-        if (playerCount == null || Integer.parseInt(playerCount) == 0)
+                Intent mainIntent = new Intent(this, DrawActivity.class);
+
+                // Package the intent with the instance of the game controller
+                // made specifically for this game.
+
+                controller = new GameController(playerCount);
+
+                // TODO GameController needs to implement serializable
+                //mainIntent.putExtra(GAME_CONTROLLER, controller);
+
+                startActivity(mainIntent);
+            }
+        }
+        catch(NumberFormatException e) // Ensures the editText isn't blank.
         {
             Toast.makeText(getApplicationContext(), "Enter a valid number", Toast.LENGTH_SHORT).show();
         }
-        else
-        {
-            mainIntent.putExtra(PLAYER_AMOUNT, playerCount);
 
-            startActivity(mainIntent);
-        }
+
+
 
 
     }
@@ -82,4 +106,5 @@ public class MainActivity
 
     // TODO Find out how to test Toast notifications.
     // TODO Find out if we need a test class for each activity.
+    // TODO Make sure the game controller isn't unpackaged in terms of an intent in the draw activity twice
 }

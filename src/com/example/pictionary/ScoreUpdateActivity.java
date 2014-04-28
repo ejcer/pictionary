@@ -1,6 +1,8 @@
 package com.example.pictionary;
 
 
+import android.widget.EditText;
+import android.widget.TextView;
 import android.view.View;
 import android.content.Intent;
 import com.example.pictionary.R;
@@ -26,6 +28,8 @@ public class ScoreUpdateActivity
     public final static String SCORE_RECORD =
                                                   "com.Pictionary.ScoreUpdateActivity.MESSAGE";
 
+    //private TextView scoreDisplay = (TextView)findViewById(R.id.scoreDisplay);
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -36,6 +40,9 @@ public class ScoreUpdateActivity
         // value pair relayed from the StartGuessDialog activity, and sent
         // from the DrawActivity activity.
         Intent guessIntent = getIntent();
+
+        //scoreDisplay.setText(MainActivity.controller.getScoreList());
+        //scoreDisplay.setText("bagger 849o5349");
     }
 
 
